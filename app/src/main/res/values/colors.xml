@@ -10,4 +10,5 @@
     
     <color name="start_color">#E0EAFC</color>
     <color name="end_color">#CFDEF3</color>
+    <color name="blue">#0096FF</color>
 </resources>
