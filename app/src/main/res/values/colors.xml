@@ -10,4 +10,7 @@
     
     <color name="start_color">#E0EAFC</color>
     <color name="end_color">#CFDEF3</color>
+    <color name="gray">#4E4F50</color>
+    <color name="light_gray">#97999A</color>
+
 </resources>
