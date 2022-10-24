@@ -1,9 +1,9 @@
-plugins {
+ plugins {
     id 'com.android.application'
 }
 
 android {
-    compileSdk 32
+    compileSdk 31
 
     defaultConfig {
         applicationId "com.example.mad_project"
