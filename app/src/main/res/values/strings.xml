@@ -4,4 +4,23 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="appName">SMARTBUY</string>
     <string name="home_topic_1">Explore Popular Categories</string>
+    <string name="slogan">Experience the future..</string>
+    <string name="Logo">SMARTBUY</string>
+    <string name="addtocart">ADD TO CART</string>
+    <string name="devicename">Iphone 14 pro max</string>
+    <string name="price">LKR 450000</string>
+    <string name="add">ADD</string>
+    <string name="quantity">Quantity</string>
+    <string name="quntitynumber">1</string>
+    <string name="user_name">Name</string>
+    <string name="editprofile">Edit</string>
+    <string name="fname">Anushka</string>
+    <string name="firstname">First Name</string>
+    <string name="username">Username</string>
+    <string name="lname">Last Name</string>
+    <string name="emailadd">Email</string>
+    <string name="contact">Contact no</string>
+    <string name="address">Address</string>
+    <string name="lastname">sharma</string>
+    <string name="location">New Kandy rd, Malabe</string>
 </resources>
