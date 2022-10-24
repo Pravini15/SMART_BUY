@@ -20,8 +20,12 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+        <activity>
+            android:name=".ProfileActivity"
+            android:exported="false" />
+        </activity>
         <activity
-            android:name=".HomeActivity"
+            android:name=".LandingActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -43,7 +47,7 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".LandingActivity"
+            android:name=".HomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -51,6 +55,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

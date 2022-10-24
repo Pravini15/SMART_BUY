@@ -3,10 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/DELL/Documents/MAD/Real MAD/app/src/main/res/drawable/gradient.xml" value="0.1" />
-        <entry key="..\:/Users/DELL/Documents/MAD/Real MAD/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1525" />
-        <entry key="..\:/Users/DELL/Documents/MAD/Real MAD/app/src/main/res/drawable/landing_shape.xml" value="0.2545" />
-        <entry key="..\:/Users/DELL/Documents/MAD/Real MAD/app/src/main/res/layout/activity_landing.xml" value="0.144" />
+        <entry key="..\:/Users/DELL/Documents/MAD/Real MAD/app/src/main/res/drawable/bluebutton.xml" value="0.2485" />
+        <entry key="..\:/Users/DELL/Documents/MAD/Real MAD/app/src/main/res/drawable/cart_shape.xml" value="0.24" />
+        <entry key="..\:/Users/DELL/Documents/MAD/Real MAD/app/src/main/res/drawable/gradient.xml" value="0.2555" />
+        <entry key="..\:/Users/DELL/Documents/MAD/Real MAD/app/src/main/res/drawable/landing_shape.xml" value="0.2555" />
+        <entry key="..\:/Users/DELL/Documents/MAD/Real MAD/app/src/main/res/drawable/profieshape.xml" value="0.155" />
+        <entry key="..\:/Users/DELL/Documents/MAD/Real MAD/app/src/main/res/layout/activity_add_to_cart.xml" value="0.2" />
+        <entry key="..\:/Users/DELL/Documents/MAD/Real MAD/app/src/main/res/layout/activity_home.xml" value="0.176" />
+        <entry key="..\:/Users/DELL/Documents/MAD/Real MAD/app/src/main/res/layout/activity_landing.xml" value="0.264" />
+        <entry key="..\:/Users/DELL/Documents/MAD/Real MAD/app/src/main/res/layout/activity_login.xml" value="0.25" />
+        <entry key="..\:/Users/DELL/Documents/MAD/Real MAD/app/src/main/res/layout/activity_profile.xml" value="0.264" />
+        <entry key="..\:/Users/DELL/Documents/MAD/Real MAD/app/src/main/res/layout/activity_profile2.xml" value="0.19427083333333334" />
+        <entry key="..\:/Users/DELL/Documents/MAD/Real MAD/app/src/main/res/layout/cart_shape.xml" value="0.24895833333333334" />
+        <entry key="..\:/Users/DELL/Documents/MAD/Real MAD/app/src/main/res/layout/fragment_cart.xml" value="0.25" />
+        <entry key="..\:/Users/DELL/Documents/MAD/Real MAD/app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="..\:/Users/DELL/Documents/MAD/Real MAD/app/src/main/res/layout/fragment_product.xml" value="0.176" />
       </map>
     </option>
   </component>
