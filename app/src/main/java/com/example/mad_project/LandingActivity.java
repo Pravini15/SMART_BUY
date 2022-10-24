@@ -11,7 +11,7 @@ import android.window.SplashScreen;
 
 public class LandingActivity extends AppCompatActivity {
 
-    private static int SPLASH_SCREEN=10000;
+    private static int SPLASH_SCREEN=3000;
     TextView landinglogo;
 
     @Override
