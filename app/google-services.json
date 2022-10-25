@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "158720323846",
-    "project_id": "smartbuy-71da1",
-    "storage_bucket": "smartbuy-71da1.appspot.com"
+    "project_number": "1081117795318",
+    "project_id": "smartbuy-544b8",
+    "storage_bucket": "smartbuy-544b8.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:158720323846:android:2b5f5cd93f3e73c8acae87",
+        "mobilesdk_app_id": "1:1081117795318:android:81885649d8d474f2175dd7",
         "android_client_info": {
           "package_name": "com.example.mad_project"
         }
       },
       "oauth_client": [
         {
-          "client_id": "158720323846-e5lpjveu3vjs4aidndietjqqb3087buq.apps.googleusercontent.com",
+          "client_id": "1081117795318-3s2u16ht8jfnetpjvnvbnakelcuk2u80.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyD5eIMWK2wTQOdltKLVaLclm1c8BcYBi_0"
+          "current_key": "AIzaSyDFQMx0F5AOfIunIScGFCnU2Tbo0Eyrgfg"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "158720323846-e5lpjveu3vjs4aidndietjqqb3087buq.apps.googleusercontent.com",
+              "client_id": "1081117795318-3s2u16ht8jfnetpjvnvbnakelcuk2u80.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

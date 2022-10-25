@@ -11,7 +11,7 @@ import android.window.SplashScreen;
 
 public class LandingActivity extends AppCompatActivity {
 
-    private static int SPLASH_SCREEN=3000;
+    private static int SPLASH_SCREEN=1000;
     TextView landinglogo;
 
     @Override
@@ -27,7 +27,7 @@ public class LandingActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(LandingActivity.this, HomeActivity.class);
+                Intent intent = new Intent(LandingActivity.this, AddProduct.class);
                 startActivity(intent);
                 finish();
             }
