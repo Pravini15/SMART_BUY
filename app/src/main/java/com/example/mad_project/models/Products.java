@@ -1,22 +1,14 @@
 package com.example.mad_project.models;
 
 public class Products {
-    String id;
     String name;
     String prize;
+    String status;
 
-    public Products(String id, String name, String prize) {
-        this.id = id;
+    public Products(String name, String prize, String status) {
         this.name = name;
         this.prize = prize;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
+        this.status = status;
     }
 
     public String getName() {
@@ -25,6 +17,14 @@ public class Products {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public String getPrize() {

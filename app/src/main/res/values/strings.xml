@@ -23,4 +23,9 @@
     <string name="address">Address</string>
     <string name="lastname">sharma</string>
     <string name="location">New Kandy rd, Malabe</string>
+    <string name="productName">Product Name</string>
+    <string name="status">Status</string>
+    <string name="product">Product</string>
+    <string name="addProduct">Add Product</string>
+    <string name="product_name">Product Name</string>
 </resources>
