@@ -13,6 +13,13 @@
         android:theme="@style/Theme.MAD_Project"
         tools:targetApi="31">
         <activity
+            android:name=".CartActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".RegisterActivity"
             android:exported="false">
             <meta-data
@@ -31,7 +38,6 @@
         <activity
             android:name=".AddToCartActivity"
             android:exported="false" />
-
         <activity
             android:name=".LandingActivity"
             android:exported="false">
@@ -51,7 +57,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>
