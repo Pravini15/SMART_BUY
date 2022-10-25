@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.mad_project">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <application
         android:allowBackup="true"
@@ -21,7 +20,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".LandingActivity"
+            android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,7 +33,7 @@
             android:exported="false" />
 
         <activity
-            android:name=".LoginActivity"
+            android:name=".LandingActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
