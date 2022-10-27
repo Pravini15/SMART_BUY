@@ -11,64 +11,61 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mad_project.R;
-import com.example.mad_project.models.Products;
+import com.example.mad_project.models.ImageModelClass;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.listViewHolder>{
 
-    Context context;
-    List<Products> mData;
-    private listViewHolder.RecyclerViewClickListener clickListener;
+    private Context context;
+    private ArrayList prID, prName, prPrice, prStatus;
+    private ArrayList<ImageModelClass> imageModelClassList;
 
-    public ProductAdapter(Context context, List<Products> mData) {
+
+    public ProductAdapter(Context context, ArrayList prID, ArrayList prName, ArrayList prPrice, ArrayList prStatus, ArrayList<ImageModelClass> imageModelClassList) {
         this.context = context;
-        this.mData = mData;
+        this.prID = prID;
+        this.prName = prName;
+        this.prPrice = prPrice;
+        this.prStatus = prStatus;
+        this.imageModelClassList = imageModelClassList;
     }
 
     @NonNull
     @Override
     public listViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View layout;
-        layout = LayoutInflater.from(context).inflate(R.layout.product_item,parent,false);
-        return new listViewHolder(layout,context,mData,clickListener);
+        LayoutInflater inflater = LayoutInflater.from(context);
+        View view = inflater.inflate(R.layout.product_item, parent, false);
+        return new listViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull listViewHolder holder, int position) {
-        String name = mData.get(position).getName().toString();
-        String price = mData.get(position).getPrize().toString();
-        String status = mData.get(position).getStatus().toString();
-
-        holder.name.setText(name);
-        holder.price.setText(price);
-        holder.status.setText(status);
+    public void onBindViewHolder(@NonNull ProductAdapter.listViewHolder holder, int position) {
+        ImageModelClass imageModelClass = imageModelClassList.get(position);
+        holder.prName.setText(String.valueOf(prName.get(position)));
+        holder.prPrice.setText(String.valueOf(prPrice.get(position)));
+        holder.prStatus.setText(String.valueOf(prStatus.get(position)));
+        holder.prImage.setImageBitmap(imageModelClass.getImage());
     }
 
     @Override
     public int getItemCount() {
-        return mData.size();
+        return prID.size();
     }
 
-    public static class listViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public static class listViewHolder extends RecyclerView.ViewHolder{
 
-        TextView name, price, status;
-        ImageView pr;
+        TextView prName, prPrice, prStatus;
+        ImageView prImage;
 
-        public listViewHolder(@NonNull View itemView, Context context, List<Products> mData, RecyclerViewClickListener recyclerViewClickListener) {
+        public listViewHolder(@NonNull View itemView) {
             super(itemView);
-            name = itemView.findViewById(R.id.pr_name);
-            price = itemView.findViewById(R.id.pr_price);
-            status = itemView.findViewById(R.id.pr_status);
-        }
-
-        @Override
-        public void onClick(View v) {
-
-        }
-
-        public interface RecyclerViewClickListener{
-
+            prName = itemView.findViewById(R.id.pr_name);
+            prPrice = itemView.findViewById(R.id.pr_price);
+            prStatus = itemView.findViewById(R.id.pr_status);
+            prImage = itemView.findViewById(R.id.pr_image);
         }
     }
+
+
 }
