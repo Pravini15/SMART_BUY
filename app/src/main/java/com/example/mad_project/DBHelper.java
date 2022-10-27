@@ -36,6 +36,18 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String CITY = "city";
     private static final String ADDRESS = "address";
 
+    private static final String TABLE_USER = "user";
+    private static final String USER_ID = "user_id";
+    private static final String USER_NAME = "user_name";
+    private static final String USER_EMAIL = "user_email";
+    private static final String USER_PASSWORD = "user_password";
+    private static final String USER_PHONE_NUMBER = "user_phone_number";
+    private static final String USER_ADDRESS = "user_address";
+
+
+
+
+
     private ByteArrayOutputStream byteArrayOutputStream;
     private byte[] imageToByte;
 
@@ -61,6 +73,14 @@ public class DBHelper extends SQLiteOpenHelper {
                 CITY + " TEXT, " +
                 ADDRESS + " TEXT);" ;
         db.execSQL(query1);
+
+        String query2 = "CREATE TABLE "+ TABLE_USER + "(" + USER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "+
+                USER_NAME + " TEXT, " +
+                USER_EMAIL + " TEXT, " +
+                USER_PASSWORD + "TEXT, " +
+                USER_PHONE_NUMBER + "TEXT, "+
+                USER_ADDRESS + "TEXT);";
+        db.execSQL(query2);
     }
 
     @Override
@@ -69,6 +89,9 @@ public class DBHelper extends SQLiteOpenHelper {
         onCreate(db);
         
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_DELIVERY);
+        onCreate(db);
+
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_USER);
         onCreate(db);
     }
 
@@ -126,6 +149,25 @@ public class DBHelper extends SQLiteOpenHelper {
 
 
         long result = db.insert(TABLE_DELIVERY, null,cv);
+        if (result == -1){
+            Toast.makeText(context, "failed", Toast.LENGTH_SHORT).show();
+        }else {
+            Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void addUser(String user_name, String user_email, String user_password, String user_phone_number, String user_address){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+
+        cv.put(USER_NAME, user_name);
+        cv.put(USER_EMAIL,user_email);
+        cv.put(USER_PASSWORD,user_password);
+        cv.put(USER_PHONE_NUMBER,user_phone_number);
+        cv.put(USER_ADDRESS,user_address);
+
+
+        long result = db.insert(TABLE_USER, null,cv);
         if (result == -1){
             Toast.makeText(context, "failed", Toast.LENGTH_SHORT).show();
         }else {

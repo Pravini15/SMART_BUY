@@ -1,15 +1,19 @@
 package com.example.mad_project;
-
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.mad_project.DBHelper;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -17,6 +21,7 @@ public class LoginActivity extends AppCompatActivity {
     TextView app_signIn;
     EditText app_username, app_password;
     RelativeLayout btn_login;
+    DBHelper dbHelper;
     private String EmailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
     private String mobilePattern = "^\\+[0-9]{10,13}$";
     private String passwordPattern = "[a-zA-Z0-9\\\\!\\\\@\\\\#\\\\$]{8,24}";
@@ -26,6 +31,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Boolean e=false,p=false;
         setContentView(R.layout.activity_login);
 
         loginpage = findViewById(R.id.textView);
@@ -33,6 +39,7 @@ public class LoginActivity extends AppCompatActivity {
         app_username = findViewById(R.id.editText);
         app_password = findViewById(R.id.editText2);
         btn_login = findViewById(R.id.btn_login);
+        dbHelper = new DBHelper(this);
 
         String textlogin = "<font color = #0096FF ><b>SMART</b></font><font color= ##D7FCEE><b>BUY</b></font>";
         loginpage.setText(Html.fromHtml(textlogin));
@@ -43,6 +50,7 @@ public class LoginActivity extends AppCompatActivity {
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 validateFields();
                 LogUser();
 
@@ -60,6 +68,8 @@ public class LoginActivity extends AppCompatActivity {
         String username,password;
         username = app_username.getText().toString();
         password = app_password.getText().toString();
+        //Cursor cursor = dbHelper.getData();
+
 
         if (!(username.isEmpty())){
             if (!(password.isEmpty())){
