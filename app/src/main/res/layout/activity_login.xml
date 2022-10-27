@@ -57,21 +57,22 @@
     <EditText
         android:id="@+id/editText"
         style="@style/text_view"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
+        android:layout_width="300dp"
+        android:layout_height="57dp"
         android:layout_marginStart="68dp"
         android:layout_marginEnd="30dp"
+        android:background="@drawable/text_background"
         android:backgroundTint="#221F1F"
         android:hint="  User name/Email"
-        android:background="@drawable/text_background"
         android:inputType="textEmailAddress"
         android:textColorHint="#9A9797"
         android:textCursorDrawable="@color/black"
         app:layout_constraintBottom_toBottomOf="@+id/imageView6"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.766"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/imageView6"
-        app:layout_constraintTop_toTopOf="@+id/imageView6" />
+        app:layout_constraintTop_toTopOf="@+id/imageView6"
+        app:layout_constraintVertical_bias="0.575" />
 
     <ImageView
         android:id="@+id/imageView7"
@@ -86,19 +87,19 @@
     <EditText
         android:id="@+id/editText2"
         style="@style/text_view"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_marginStart="68dp"
-        android:layout_marginEnd="30dp"
+        android:layout_width="304dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/text_background"
         android:backgroundTint="#221F1F"
         android:hint="  Password"
-        android:background="@drawable/text_background"
         android:inputType="textPassword"
         android:textColorHint="#9A9797"
         android:textCursorDrawable="@color/black"
         app:layout_constraintBottom_toBottomOf="@+id/imageView7"
         app:layout_constraintStart_toEndOf="@+id/imageView7"
-        app:layout_constraintTop_toTopOf="@+id/imageView7" />
+        app:layout_constraintTop_toTopOf="@+id/imageView7"
+        app:layout_constraintVertical_bias="0.466" />
 
     <TextView
         android:id="@+id/textView4"
