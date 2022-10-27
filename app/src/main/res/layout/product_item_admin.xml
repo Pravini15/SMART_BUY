@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="0dp"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp">
+
+    <TableRow android:background="#F0F7F7" android:padding="10dp"
+        tools:ignore="UselessParent">
+        <TextView
+            android:id="@+id/admin_pr_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="1" />
+        <TextView
+            android:id="@+id/admin_pr_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Virat Kohli" />
+        <TextView
+            android:id="@+id/admin_pr_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="IND" />
+        <TextView
+            android:id="@+id/admin_pr_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="895" />
+        <Button
+            android:id="@+id/btn_update_product"
+            android:text="Update"/>
+        <Button
+            android:id="@+id/btn_delete_product"
+            android:layout_marginStart="5dp"
+            android:text="Delete"/>
+    </TableRow>
+
+</TableLayout>

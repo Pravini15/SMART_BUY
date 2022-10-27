@@ -31,4 +31,9 @@
     <string name="view_image">View Image</string>
     <string name="get_image">Get Image</string>
     <string name="view_products">View Products</string>
+    <string name="AdminProducts">Admin Products</string>
+    <string name="item_id">ID</string>
+    <string name="item_name">Name</string>
+    <string name="price_name">Price</string>
+    <string name="action">Action</string>
 </resources>
