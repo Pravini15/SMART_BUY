@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/img_home_r1c1"
         android:layout_width="529dp"
         android:layout_height="555dp"
         android:layout_marginTop="60dp"
@@ -45,7 +45,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/img_home_r1c2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
@@ -67,21 +67,21 @@
         android:inputType="textEmailAddress"
         android:textColorHint="#9A9797"
         android:textCursorDrawable="@color/black"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+        app:layout_constraintBottom_toBottomOf="@+id/img_home_r1c2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.766"
-        app:layout_constraintStart_toEndOf="@+id/imageView6"
-        app:layout_constraintTop_toTopOf="@+id/imageView6" />
+        app:layout_constraintStart_toEndOf="@+id/img_home_r1c2"
+        app:layout_constraintTop_toTopOf="@+id/img_home_r1c2" />
 
     <ImageView
-        android:id="@+id/imageView7"
+        android:id="@+id/img_home_r1c3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
         android:layout_marginTop="68dp"
         android:src="@drawable/lock__close"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+        app:layout_constraintTop_toBottomOf="@+id/img_home_r1c2" />
 
     <EditText
         android:id="@+id/editText2"
@@ -96,9 +96,9 @@
         android:inputType="textPassword"
         android:textColorHint="#9A9797"
         android:textCursorDrawable="@color/black"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView7"
-        app:layout_constraintStart_toEndOf="@+id/imageView7"
-        app:layout_constraintTop_toTopOf="@+id/imageView7" />
+        app:layout_constraintBottom_toBottomOf="@+id/img_home_r1c3"
+        app:layout_constraintStart_toEndOf="@+id/img_home_r1c3"
+        app:layout_constraintTop_toTopOf="@+id/img_home_r1c3" />
 
     <TextView
         android:id="@+id/textView4"

@@ -28,4 +28,7 @@
     <string name="product">Product</string>
     <string name="addProduct">Add Product</string>
     <string name="product_name">Product Name</string>
+    <string name="view_image">View Image</string>
+    <string name="get_image">Get Image</string>
+    <string name="view_products">View Products</string>
 </resources>
