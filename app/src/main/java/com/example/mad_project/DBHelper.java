@@ -20,6 +20,7 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String COLUMN_PRICE = "price";
     private static final String COLUMN_STATUS = "status";
 
+
     public DBHelper(@Nullable Context context) {
         super(context, DB_NAME, null, DATABASE_VERSION);
         this.context = context;
