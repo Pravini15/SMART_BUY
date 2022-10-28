@@ -36,6 +36,13 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String CITY = "city";
     private static final String ADDRESS = "address";
 
+    private static final String TABLE_CART = "cart";
+    private static final String CART_ID = "cart_id";
+    private static final String DEVICE_NAME = "dev_name";
+    private static final String DEVICE_PRICE = "dev_price";
+    private static final String DEVICE_STATUS = "dev_status";
+    private static final String QUANTITY = "quantity";
+
     private ByteArrayOutputStream byteArrayOutputStream;
     private byte[] imageToByte;
 
@@ -61,6 +68,13 @@ public class DBHelper extends SQLiteOpenHelper {
                 CITY + " TEXT, " +
                 ADDRESS + " TEXT);" ;
         db.execSQL(query1);
+
+        String querycart = "CREATE TABLE "+ TABLE_CART + " (" + CART_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "+
+                DEVICE_NAME + " TEXT, " +
+                DEVICE_PRICE + " TEXT, " +
+                DEVICE_STATUS + " TEXT, " +
+                QUANTITY + " TEXT);" ;
+        db.execSQL(querycart);
     }
 
     @Override
@@ -69,6 +83,9 @@ public class DBHelper extends SQLiteOpenHelper {
         onCreate(db);
         
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_DELIVERY);
+        onCreate(db);
+
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_CART);
         onCreate(db);
     }
 
@@ -132,4 +149,34 @@ public class DBHelper extends SQLiteOpenHelper {
             Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show();
         }
     }
+
+    public void add_to_cart(String dev_name, String dev_price, String dev_status, String quantity){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+
+        cv.put(DEVICE_NAME, dev_name);
+        cv.put(DEVICE_PRICE, dev_price);
+        cv.put(DEVICE_STATUS, dev_status);
+        cv.put(QUANTITY, quantity);
+
+        long result = db.insert(TABLE_CART, null,cv);
+        if (result == -1){
+            Toast.makeText(context, "failed", Toast.LENGTH_SHORT).show();
+        }else {
+            Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+    Cursor readCartItems(){
+        String query = "SELECT * FROM " + TABLE_CART;
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = null;
+        if (db != null){
+            cursor = db.rawQuery(query,null);
+        }
+        return cursor;
+    }
 }
+
