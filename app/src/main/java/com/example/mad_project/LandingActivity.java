@@ -27,7 +27,7 @@ public class LandingActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(LandingActivity.this, DashboardActivity.class);
+                Intent intent = new Intent(LandingActivity.this, HomeActivity.class);
                 startActivity(intent);
                 finish();
             }
