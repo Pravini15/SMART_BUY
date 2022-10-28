@@ -36,6 +36,22 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String CITY = "city";
     private static final String ADDRESS = "address";
 
+    private static final String TABLE_USER = "user";
+    private static final String USER_ID = "user_id";
+    private static final String USER_NAME = "user_name";
+    private static final String USER_EMAIL = "user_email";
+    private static final String USER_PASSWORD = "user_password";
+    private static final String USER_PHONE_NUMBER = "user_phone_number";
+    private static final String USER_ADDRESS = "user_address";
+
+    private static final String TABLE_EVENT_OFFERS = "event_offer";
+    private static final String EVENT_OFFER_ID = "event_offer_id";
+    private static final String EVENT_OFFER_START_DATE = "event_offer_start_date";
+    private static final String EVENT_OFFER_END_DATE = "event_offer_end_date";
+    private static final String EVENT_OFFER_DESCRIPTION = "event_offer_description";
+    private static final String EVENT_OFFER_IMAGE = "event_offer_image";
+
+
     private ByteArrayOutputStream byteArrayOutputStream;
     private byte[] imageToByte;
 
@@ -61,6 +77,22 @@ public class DBHelper extends SQLiteOpenHelper {
                 CITY + " TEXT, " +
                 ADDRESS + " TEXT);" ;
         db.execSQL(query1);
+
+        String query2 = "CREATE TABLE "+ TABLE_USER + "(" + USER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "+
+                USER_NAME + " TEXT, " +
+                USER_EMAIL + " TEXT, " +
+                USER_PASSWORD + "TEXT, " +
+                USER_PHONE_NUMBER + "TEXT, "+
+                USER_ADDRESS + "TEXT);";
+        db.execSQL(query2);
+
+        String query3 = "CREATE TABLE "+ TABLE_EVENT_OFFERS + "(" + EVENT_OFFER_ID + "INTEGER PRIMARY KEY AUTOINCREMENT, "+
+                EVENT_OFFER_START_DATE + " TEXT, " +
+                EVENT_OFFER_END_DATE + " TEXT, " +
+                EVENT_OFFER_DESCRIPTION + " TEXT, " +
+                EVENT_OFFER_IMAGE + " TEXT);";
+        db.execSQL(query3);
+
     }
 
     @Override
@@ -69,6 +101,12 @@ public class DBHelper extends SQLiteOpenHelper {
         onCreate(db);
         
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_DELIVERY);
+        onCreate(db);
+
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_USER);
+        onCreate(db);
+
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_EVENT_OFFERS);
         onCreate(db);
     }
 
@@ -132,4 +170,73 @@ public class DBHelper extends SQLiteOpenHelper {
             Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show();
         }
     }
+
+    public Boolean insertUserData(String user_name, String user_email, String user_password, String user_phone_number, String user_address){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+
+        cv.put(USER_NAME, user_name);
+        cv.put(USER_EMAIL,user_email);
+        cv.put(USER_PASSWORD,user_password);
+        cv.put(USER_PHONE_NUMBER,user_phone_number);
+        cv.put(USER_ADDRESS,user_address);
+
+
+        long result = db.insert(TABLE_USER, null,cv);
+        if (result == -1){
+            Toast.makeText(context, "failed", Toast.LENGTH_SHORT).show();
+            return false;
+        }else {
+            Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show();
+            return true;
+        }
+    }
+
+    public Cursor getData(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("Select * from TABLE_USER ",null);
+       return cursor;
+    }
+
+    public void addEventAndOffers(String start_date, String end_date, String description, ImageModelClass imageModelClass){
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+
+        try {
+            Bitmap imageToStoreBitmap = imageModelClass.getImage();
+
+            byteArrayOutputStream = new ByteArrayOutputStream();
+            imageToStoreBitmap.compress(Bitmap.CompressFormat.JPEG,100,byteArrayOutputStream);
+
+            imageToByte = byteArrayOutputStream.toByteArray();
+        }catch (Exception e){
+            Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+
+        cv.put(EVENT_OFFER_START_DATE, start_date);
+        cv.put(EVENT_OFFER_END_DATE, end_date);
+        cv.put(EVENT_OFFER_DESCRIPTION, description);
+        cv.put(EVENT_OFFER_IMAGE, imageToByte);
+
+        long result = db.insert(TABLE_EVENT_OFFERS, null,cv);
+        if (result == -1){
+            Toast.makeText(context, "failed", Toast.LENGTH_SHORT).show();
+        }else {
+            Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    Cursor readEventAndOffer(){
+        String query3 = "SELECT * FROM " + TABLE_EVENT_OFFERS;
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = null;
+        if (db != null){
+            cursor = db.rawQuery(query3,null);
+        }
+        return cursor;
+    }
+
+
 }

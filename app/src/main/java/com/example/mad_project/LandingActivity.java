@@ -9,6 +9,8 @@ import android.text.Html;
 import android.widget.TextView;
 import android.window.SplashScreen;
 
+import com.example.mad_project.adapter.EventAndOfferAdapter;
+
 public class LandingActivity extends AppCompatActivity {
 
     private static int SPLASH_SCREEN=3000;
@@ -27,7 +29,7 @@ public class LandingActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(LandingActivity.this, DashboardActivity.class);
+                Intent intent = new Intent(LandingActivity.this, RegisterActivity.class);
                 startActivity(intent);
                 finish();
             }
