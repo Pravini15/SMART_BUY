@@ -26,7 +26,7 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String COLUMN_PRICE = "price";
     private static final String COLUMN_STATUS = "status";
     private static final String COLUMN_IMAGE = "image";
-    
+
     private static final String TABLE_DELIVERY = "delivery_details";
     private static final String DELIVERY_ID = "billing_id";
     private static final String DELIVERY_NAME = "billing_name";
@@ -80,38 +80,38 @@ public class DBHelper extends SQLiteOpenHelper {
                 COLUMN_STATUS + " TEXT," +
                 COLUMN_IMAGE + " BLOB);";
         db.execSQL(query);
-        
-        String queryDelivery = "CREATE TABLE "+ TABLE_DELIVERY + " (" + DELIVERY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "+
+
+        String queryDelivery = "CREATE TABLE " + TABLE_DELIVERY + " (" + DELIVERY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 DELIVERY_NAME + " TEXT, " +
                 CONTACT_NO + " TEXT, " +
                 PROVINCE + " TEXT, " +
                 DISTRICT + " TEXT, " +
                 CITY + " TEXT, " +
-                ADDRESS + " TEXT);" ;
+                ADDRESS + " TEXT);";
         db.execSQL(queryDelivery);
 
-        String querycart = "CREATE TABLE "+ TABLE_CART + " (" + CART_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "+
+        String querycart = "CREATE TABLE " + TABLE_CART + " (" + CART_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 DEVICE_NAME + " TEXT, " +
                 DEVICE_PRICE + " TEXT, " +
                 DEVICE_STATUS + " TEXT, " +
-                QUANTITY + " TEXT);" ;
+                QUANTITY + " TEXT);";
         db.execSQL(querycart);
 
-        String queryContact = "CREATE TABLE "+ TABLE_CONTACT + " (" + CONTACT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "+
+        String queryContact = "CREATE TABLE " + TABLE_CONTACT + " (" + CONTACT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 NAME + " TEXT, " +
                 EMAIL_ADDRESS + " TEXT, " +
-                MESSAGE + " TEXT);" ;
+                MESSAGE + " TEXT);";
         db.execSQL(queryContact);
 
-        String queryUser = "CREATE TABLE "+ TABLE_USER + "(" + USER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "+
+        String queryUser = "CREATE TABLE " + TABLE_USER + "(" + USER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 USER_NAME + " TEXT, " +
                 USER_EMAIL + " TEXT, " +
                 USER_PASSWORD + "TEXT, " +
-                USER_PHONE_NUMBER + "TEXT, "+
+                USER_PHONE_NUMBER + "TEXT, " +
                 USER_ADDRESS + "TEXT);";
         db.execSQL(queryUser);
 
-        String queryEvent = "CREATE TABLE "+ TABLE_EVENT_OFFERS + "(" + EVENT_OFFER_ID + "INTEGER PRIMARY KEY AUTOINCREMENT, "+
+        String queryEvent = "CREATE TABLE " + TABLE_EVENT_OFFERS + "(" + EVENT_OFFER_ID + "INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 EVENT_OFFER_START_DATE + " TEXT, " +
                 EVENT_OFFER_END_DATE + " TEXT, " +
                 EVENT_OFFER_DESCRIPTION + " TEXT, " +
@@ -120,12 +120,11 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
 
-
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         onCreate(db);
-        
+
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_DELIVERY);
         onCreate(db);
 
@@ -134,7 +133,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_CONTACT);
         onCreate(db);
-        
+
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_USER);
         onCreate(db);
 
@@ -142,7 +141,7 @@ public class DBHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void addProduct(String name, String price, String status, ImageModelClass imageModelClass){
+    public void addProduct(String name, String price, String status, ImageModelClass imageModelClass) {
 
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -151,11 +150,11 @@ public class DBHelper extends SQLiteOpenHelper {
             Bitmap imageToStoreBitmap = imageModelClass.getImage();
 
             byteArrayOutputStream = new ByteArrayOutputStream();
-            imageToStoreBitmap.compress(Bitmap.CompressFormat.JPEG,100,byteArrayOutputStream);
+            imageToStoreBitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
 
             imageToByte = byteArrayOutputStream.toByteArray();
 
-        }catch (Exception e){
+        } catch (Exception e) {
             Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
         }
 
@@ -164,26 +163,26 @@ public class DBHelper extends SQLiteOpenHelper {
         cv.put(COLUMN_STATUS, status);
         cv.put(COLUMN_IMAGE, imageToByte);
 
-        long result = db.insert(TABLE_NAME, null,cv);
-        if (result == -1){
+        long result = db.insert(TABLE_NAME, null, cv);
+        if (result == -1) {
             Toast.makeText(context, "failed", Toast.LENGTH_SHORT).show();
-        }else {
+        } else {
             Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show();
         }
     }
 
-    Cursor readProducts(){
-         String query = "SELECT * FROM " + TABLE_NAME;
-         SQLiteDatabase db = this.getReadableDatabase();
+    Cursor readProducts() {
+        String query = "SELECT * FROM " + TABLE_NAME;
+        SQLiteDatabase db = this.getReadableDatabase();
 
-         Cursor cursor = null;
-         if (db != null){
-             cursor = db.rawQuery(query,null);
-         }
-         return cursor;
+        Cursor cursor = null;
+        if (db != null) {
+            cursor = db.rawQuery(query, null);
+        }
+        return cursor;
     }
-    
-    public void addBillingDetails(String billing_name, String contact_no, String province, String district, String city, String address){
+
+    public void addBillingDetails(String billing_name, String contact_no, String province, String district, String city, String address) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
@@ -195,15 +194,15 @@ public class DBHelper extends SQLiteOpenHelper {
         cv.put(ADDRESS, address);
 
 
-        long result = db.insert(TABLE_DELIVERY, null,cv);
-        if (result == -1){
+        long result = db.insert(TABLE_DELIVERY, null, cv);
+        if (result == -1) {
             Toast.makeText(context, "failed", Toast.LENGTH_SHORT).show();
-        }else {
+        } else {
             Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show();
         }
     }
 
-    void updateProductData(String row_id, String name, String price, String status, ImageModelClass imageModelClass){
+    void updateProductData(String row_id, String name, String price, String status, ImageModelClass imageModelClass) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         try {
@@ -211,11 +210,11 @@ public class DBHelper extends SQLiteOpenHelper {
             Bitmap imageToStoreBitmap = imageModelClass.getImage();
 
             byteArrayOutputStream = new ByteArrayOutputStream();
-            imageToStoreBitmap.compress(Bitmap.CompressFormat.JPEG,100,byteArrayOutputStream);
+            imageToStoreBitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
 
             imageToByte = byteArrayOutputStream.toByteArray();
 
-        }catch (Exception e){
+        } catch (Exception e) {
             Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
         }
 
@@ -226,22 +225,23 @@ public class DBHelper extends SQLiteOpenHelper {
 
         long result = db.update(TABLE_NAME, cv, "_id=?", new String[]{row_id});
 
-        if (result == -1){
+        if (result == -1) {
             Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
-        }else {
+        } else {
             Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show();
         }
     }
 
-    void deleteProduct(String row_id){
+    void deleteProduct(String row_id) {
         SQLiteDatabase db = this.getWritableDatabase();
-        long result = db.delete(TABLE_NAME,"_id=?", new String[]{row_id});
+        long result = db.delete(TABLE_NAME, "_id=?", new String[]{row_id});
 
-        if (result == -1){
+        if (result == -1) {
             Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
-     }
-     
-    public void add_to_cart(String dev_name, String dev_price, String dev_status, String quantity){
+        }
+    }
+
+    public void add_to_cart(String dev_name, String dev_price, String dev_status, String quantity) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
@@ -250,55 +250,55 @@ public class DBHelper extends SQLiteOpenHelper {
         cv.put(DEVICE_STATUS, dev_status);
         cv.put(QUANTITY, quantity);
 
-        long result = db.insert(TABLE_CART, null,cv);
-        if (result == -1){
+        long result = db.insert(TABLE_CART, null, cv);
+        if (result == -1) {
             Toast.makeText(context, "failed", Toast.LENGTH_SHORT).show();
-        }else {
+        } else {
             Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show();
         }
 
     }
 
-    Cursor readCartItems(){
+    Cursor readCartItems() {
         String query = "SELECT * FROM " + TABLE_CART;
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = null;
-        if (db != null){
-            cursor = db.rawQuery(query,null);
+        if (db != null) {
+            cursor = db.rawQuery(query, null);
         }
         return cursor;
     }
 
 
-    public Boolean insertUserData(String user_name, String user_email, String user_password, String user_phone_number, String user_address){
+    public Boolean insertUserData(String user_name, String user_email, String user_password, String user_phone_number, String user_address) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
         cv.put(USER_NAME, user_name);
-        cv.put(USER_EMAIL,user_email);
-        cv.put(USER_PASSWORD,user_password);
-        cv.put(USER_PHONE_NUMBER,user_phone_number);
-        cv.put(USER_ADDRESS,user_address);
+        cv.put(USER_EMAIL, user_email);
+        cv.put(USER_PASSWORD, user_password);
+        cv.put(USER_PHONE_NUMBER, user_phone_number);
+        cv.put(USER_ADDRESS, user_address);
 
 
-        long result = db.insert(TABLE_USER, null,cv);
-        if (result == -1){
+        long result = db.insert(TABLE_USER, null, cv);
+        if (result == -1) {
             Toast.makeText(context, "failed", Toast.LENGTH_SHORT).show();
             return false;
-        }else {
+        } else {
             Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show();
             return true;
         }
     }
 
-    public Cursor getData(){
+    public Cursor getData() {
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery("Select * from TABLE_USER ",null);
+        Cursor cursor = db.rawQuery("Select * from TABLE_USER ", null);
         return cursor;
     }
 
-    public void addEventAndOffers(String start_date, String end_date, String description, ImageModelClass imageModelClass){
+    public void addEventAndOffers(String start_date, String end_date, String description, ImageModelClass imageModelClass) {
 
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -307,10 +307,10 @@ public class DBHelper extends SQLiteOpenHelper {
             Bitmap imageToStoreBitmap = imageModelClass.getImage();
 
             byteArrayOutputStream = new ByteArrayOutputStream();
-            imageToStoreBitmap.compress(Bitmap.CompressFormat.JPEG,100,byteArrayOutputStream);
+            imageToStoreBitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
 
             imageToByte = byteArrayOutputStream.toByteArray();
-        }catch (Exception e){
+        } catch (Exception e) {
             Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
         }
 
@@ -319,24 +319,25 @@ public class DBHelper extends SQLiteOpenHelper {
         cv.put(EVENT_OFFER_DESCRIPTION, description);
         cv.put(EVENT_OFFER_IMAGE, imageToByte);
 
-        long result = db.insert(TABLE_EVENT_OFFERS, null,cv);
-        if (result == -1){
+        long result = db.insert(TABLE_EVENT_OFFERS, null, cv);
+        if (result == -1) {
             Toast.makeText(context, "failed", Toast.LENGTH_SHORT).show();
-        }else {
+        } else {
             Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show();
         }
     }
 
 
-    Cursor readEventAndOffer(){
+    Cursor readEventAndOffer() {
         String query3 = "SELECT * FROM " + TABLE_EVENT_OFFERS;
 
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = null;
-        if (db != null){
-            cursor = db.rawQuery(query3,null);
+        if (db != null) {
+            cursor = db.rawQuery(query3, null);
         }
         return cursor;
     }
+}
 
