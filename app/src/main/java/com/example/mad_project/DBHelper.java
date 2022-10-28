@@ -36,6 +36,13 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String CITY = "city";
     private static final String ADDRESS = "address";
 
+    private static final String TABLE_CART = "cart";
+    private static final String CART_ID = "cart_id";
+    private static final String DEVICE_NAME = "dev_name";
+    private static final String DEVICE_PRICE = "dev_price";
+    private static final String DEVICE_STATUS = "dev_status";
+    private static final String QUANTITY = "quantity";
+
     private static final String TABLE_CONTACT = "contact_details";
     private static final String NAME = "name";
     private static final String CONTACT_ID = "contact_id";
@@ -57,7 +64,6 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String EVENT_OFFER_DESCRIPTION = "event_offer_description";
     private static final String EVENT_OFFER_IMAGE = "event_offer_image";
 
-
     private ByteArrayOutputStream byteArrayOutputStream;
     private byte[] imageToByte;
 
@@ -75,36 +81,42 @@ public class DBHelper extends SQLiteOpenHelper {
                 COLUMN_IMAGE + " BLOB);";
         db.execSQL(query);
         
-        String query1 = "CREATE TABLE "+ TABLE_DELIVERY + " (" + DELIVERY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "+
+        String queryDelivery = "CREATE TABLE "+ TABLE_DELIVERY + " (" + DELIVERY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "+
                 DELIVERY_NAME + " TEXT, " +
                 CONTACT_NO + " TEXT, " +
                 PROVINCE + " TEXT, " +
                 DISTRICT + " TEXT, " +
                 CITY + " TEXT, " +
                 ADDRESS + " TEXT);" ;
-        db.execSQL(query1);
+        db.execSQL(queryDelivery);
 
-        String query2 = "CREATE TABLE "+ TABLE_CONTACT + " (" + CONTACT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "+
+        String querycart = "CREATE TABLE "+ TABLE_CART + " (" + CART_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "+
+                DEVICE_NAME + " TEXT, " +
+                DEVICE_PRICE + " TEXT, " +
+                DEVICE_STATUS + " TEXT, " +
+                QUANTITY + " TEXT);" ;
+        db.execSQL(querycart);
+
+        String queryContact = "CREATE TABLE "+ TABLE_CONTACT + " (" + CONTACT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "+
                 NAME + " TEXT, " +
                 EMAIL_ADDRESS + " TEXT, " +
                 MESSAGE + " TEXT);" ;
-        db.execSQL(query2);
+        db.execSQL(queryContact);
 
-        String query2 = "CREATE TABLE "+ TABLE_USER + "(" + USER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "+
+        String queryUser = "CREATE TABLE "+ TABLE_USER + "(" + USER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "+
                 USER_NAME + " TEXT, " +
                 USER_EMAIL + " TEXT, " +
                 USER_PASSWORD + "TEXT, " +
                 USER_PHONE_NUMBER + "TEXT, "+
                 USER_ADDRESS + "TEXT);";
-        db.execSQL(query2);
+        db.execSQL(queryUser);
 
-        String query3 = "CREATE TABLE "+ TABLE_EVENT_OFFERS + "(" + EVENT_OFFER_ID + "INTEGER PRIMARY KEY AUTOINCREMENT, "+
+        String queryEvent = "CREATE TABLE "+ TABLE_EVENT_OFFERS + "(" + EVENT_OFFER_ID + "INTEGER PRIMARY KEY AUTOINCREMENT, "+
                 EVENT_OFFER_START_DATE + " TEXT, " +
                 EVENT_OFFER_END_DATE + " TEXT, " +
                 EVENT_OFFER_DESCRIPTION + " TEXT, " +
                 EVENT_OFFER_IMAGE + " TEXT);";
-        db.execSQL(query3);
-
+        db.execSQL(queryEvent);
     }
 
 
@@ -115,6 +127,9 @@ public class DBHelper extends SQLiteOpenHelper {
         onCreate(db);
         
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_DELIVERY);
+        onCreate(db);
+
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_CART);
         onCreate(db);
 
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_CONTACT);
@@ -188,6 +203,36 @@ public class DBHelper extends SQLiteOpenHelper {
         }
     }
 
+    public void add_to_cart(String dev_name, String dev_price, String dev_status, String quantity){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+
+        cv.put(DEVICE_NAME, dev_name);
+        cv.put(DEVICE_PRICE, dev_price);
+        cv.put(DEVICE_STATUS, dev_status);
+        cv.put(QUANTITY, quantity);
+
+        long result = db.insert(TABLE_CART, null,cv);
+        if (result == -1){
+            Toast.makeText(context, "failed", Toast.LENGTH_SHORT).show();
+        }else {
+            Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+    Cursor readCartItems(){
+        String query = "SELECT * FROM " + TABLE_CART;
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = null;
+        if (db != null){
+            cursor = db.rawQuery(query,null);
+        }
+        return cursor;
+    }
+
+
     public Boolean insertUserData(String user_name, String user_email, String user_password, String user_phone_number, String user_address){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -212,7 +257,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public Cursor getData(){
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery("Select * from TABLE_USER ",null);
-       return cursor;
+        return cursor;
     }
 
     public void addEventAndOffers(String start_date, String end_date, String description, ImageModelClass imageModelClass){
@@ -246,6 +291,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     Cursor readEventAndOffer(){
         String query3 = "SELECT * FROM " + TABLE_EVENT_OFFERS;
+
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = null;
@@ -255,5 +301,3 @@ public class DBHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
-
-}

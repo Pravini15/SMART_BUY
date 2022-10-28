@@ -6,6 +6,7 @@
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         tools:ignore="ScopedStorage" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -17,6 +18,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MAD_Project"
         tools:targetApi="31">
+
+        <activity
+            android:name=".CartActivity"/>
 
         <activity
             android:name=".AddContactActivity"
@@ -66,7 +70,9 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        
+        <activity
+            android:name=".EditProductActivity"
+            android:exported="false" />
         <activity
             android:name=".LoginActivity"
             android:exported="true">
@@ -114,7 +120,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
             android:name=".DeliveryActivity"
             android:exported="false" />
@@ -167,7 +172,13 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".LoginActivity"/>
+            android:name=".LoginActivity"
+            android:exported="false" />
+
+        <provider
+            android:name=".OrderProvider"
+            android:authorities="com.example.mad_project"
+            android:exported="true" />
 
         <activity
             android:name=".WelcomeActivity"
@@ -181,7 +192,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        
+
     </application>
 
 </manifest>

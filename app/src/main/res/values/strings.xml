@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">MAD_Project</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="appName">SMARTBUY</string>
     <string name="home_topic_1">Explore Popular Categories</string>
@@ -31,6 +30,9 @@
     <string name="view_image">View Image</string>
     <string name="get_image">Get Image</string>
     <string name="view_products">View Products</string>
+    <string name="brandnewstatus">Brand New</string>
+    <string name="cart">CART</string>
+    <string name="mycart">MY CART</string>
     <string name="view_events_and_offers">View Events and Offers</string>
     <string name="add_event_and_offers">Add Events and Offers</string>
     <string name="add_event_or_offers">Add Events Or Offers</string>
@@ -40,5 +42,4 @@
     <string name="start_date">Start Date</string>
     <string name="description">Description</string>
     <string name="event_and_offers">Events and Offers</string>
-
 </resources>
