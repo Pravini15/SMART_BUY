@@ -6,6 +6,7 @@
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         tools:ignore="ScopedStorage" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -17,6 +18,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MAD_Project"
         tools:targetApi="31">
+        
         <activity
             android:name=".UpdateProductActivity"
             android:exported="false">
@@ -24,6 +26,78 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
+        <activity
+            android:name=".CartActivity"/>
+
+        <activity
+            android:name=".AddContactActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        
+        <activity
+            android:name=".AboutActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        
+        <activity
+            android:name=".EditProductActivity"
+            android:exported="false" />
+            
+        <activity
+            android:name=".CartActivity"/>
+            
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        
+        <activity
+            android:name=".EventAndOffersActivity"
+            android:exported="false">
+        </activity>
+        
+        <activity
+            android:name=".AddEventAndOffersActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".EditProductActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+
+        <activity
+            android:name=".FinalActivity"/>
+           
         <activity
             android:name=".LandingActivity"
             android:exported="true">
@@ -37,9 +111,23 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".UserListActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        
         <activity
             android:name=".EditProductActivity"
             android:exported="false" />
+        
+        <activity
+            android:name=".EditProductActivity"
+            android:exported="false" />
+            
         <activity
             android:name=".DashboardActivity"
             android:exported="false">
@@ -47,6 +135,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+        
         <activity
             android:name=".DeliveryActivity"
             android:exported="false" />
@@ -68,18 +157,27 @@
             android:name=".ProductActivity"
             android:exported="false" />
         <activity
-            android:name=".RegisterActivity"
-            android:exported="false">
+            android:name=".EventdashboardActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+        
         <activity
             android:name=".AdminProductViewActivity"
-            android:exported="false"></activity>
+            android:exported="false">
+        </activity>
+        
         <activity
             android:name=".AddToCartActivity"
             android:exported="false" />
+            
         <activity
             android:name=".MainActivity"
             android:exported="false">
@@ -87,9 +185,29 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+        
         <activity
             android:name=".LoginActivity"
             android:exported="false" />
+
+        <provider
+            android:name=".OrderProvider"
+            android:authorities="com.example.mad_project"
+            android:exported="true" />
+
+        <activity
+            android:name=".WelcomeActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+]
     </application>
 
 </manifest>

@@ -9,6 +9,8 @@ import android.text.Html;
 import android.widget.TextView;
 import android.window.SplashScreen;
 
+import com.example.mad_project.adapter.EventAndOfferAdapter;
+
 public class LandingActivity extends AppCompatActivity {
 
     private static int SPLASH_SCREEN=3000;
