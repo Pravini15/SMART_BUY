@@ -1,9 +1,11 @@
 package com.example.mad_project;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.widget.Toast;
@@ -38,9 +40,17 @@ public class AdminProductViewActivity extends AppCompatActivity {
 
         getAllProducts();
 
-        adminProductsAdapter = new AdminProductsAdapter(AdminProductViewActivity.this,prID,prName,prPrice,prStatus);
+        adminProductsAdapter = new AdminProductsAdapter(AdminProductViewActivity.this,AdminProductViewActivity.this,prID,prName,prPrice,prStatus);
         recyclerView.setAdapter(adminProductsAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(AdminProductViewActivity.this));
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1){
+            recreate();
+        }
     }
 
     public void getAllProducts(){

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddProduct">
+    tools:context=".UpdateProductActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
@@ -45,7 +45,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="@string/addProduct"
+            android:text="@string/updateProduct"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="22sp"
@@ -163,10 +163,12 @@
             android:layout_height="50dp"
             android:layout_marginHorizontal="25dp"
             android:layout_marginTop="40dp"
-            android:text="@string/addProduct"
+            android:text="@string/updateProduct"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/img_pr_update" />
+            app:layout_constraintTop_toBottomOf="@+id/img_pr_update"
+            app:layout_constraintVertical_bias="0.233" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
