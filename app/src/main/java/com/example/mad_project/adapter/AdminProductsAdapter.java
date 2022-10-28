@@ -69,7 +69,7 @@ public class AdminProductsAdapter extends RecyclerView.Adapter<AdminProductsAdap
     public static class ProductTableViewHolder extends RecyclerView.ViewHolder{
 
         TextView prID, prName, prPrice, prStatus;
-        Button upButton, deleteButton;
+        Button upButton;
         LinearLayout linearLayout;
 
         public ProductTableViewHolder(@NonNull View itemView) {
@@ -80,7 +80,6 @@ public class AdminProductsAdapter extends RecyclerView.Adapter<AdminProductsAdap
             prPrice = itemView.findViewById(R.id.admin_pr_price);
             prStatus = itemView.findViewById(R.id.admin_pr_status);
             upButton = itemView.findViewById(R.id.btn_update_product);
-            deleteButton = itemView.findViewById(R.id.btn_delete_product);
             linearLayout = itemView.findViewById(R.id.layout_pr_item);
         }
     }

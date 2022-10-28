@@ -133,14 +133,39 @@ public class DBHelper extends SQLiteOpenHelper {
         }
     }
 
-    void updateProductData(String row_id, String name, String price, String status){
+    void updateProductData(String row_id, String name, String price, String status, ImageModelClass imageModelClass){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
+        try {
+
+            Bitmap imageToStoreBitmap = imageModelClass.getImage();
+
+            byteArrayOutputStream = new ByteArrayOutputStream();
+            imageToStoreBitmap.compress(Bitmap.CompressFormat.JPEG,100,byteArrayOutputStream);
+
+            imageToByte = byteArrayOutputStream.toByteArray();
+
+        }catch (Exception e){
+            Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+
         cv.put(COLUMN_NAME, name);
         cv.put(COLUMN_PRICE, price);
         cv.put(COLUMN_STATUS, status);
+        cv.put(COLUMN_IMAGE, imageToByte);
 
         long result = db.update(TABLE_NAME, cv, "_id=?", new String[]{row_id});
+
+        if (result == -1){
+            Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
+        }else {
+            Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    void deleteProduct(String row_id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        long result = db.delete(TABLE_NAME,"_id=?", new String[]{row_id});
 
         if (result == -1){
             Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();

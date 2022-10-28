@@ -35,7 +35,7 @@
     <string name="item_id">ID</string>
     <string name="item_name">Name</string>
     <string name="price_name">Price</string>
-    <string name="action">Action</string>
+    <string name="action">Edit</string>
     <string name="enter_the_product_name">Enter the Product Name :</string>
     <string name="enter_the_price">Enter the Price :</string>
     <string name="updateProduct">Update Product</string>

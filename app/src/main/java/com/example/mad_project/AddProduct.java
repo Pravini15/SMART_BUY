@@ -22,7 +22,7 @@ import java.io.IOException;
 public class AddProduct extends AppCompatActivity {
 
     EditText prName, prPrice, prStatus;
-    Button addBtn, insertImg, viewImg;
+    Button addBtn, insertImg;
     ImageView imageView;
     Bitmap image;
     byte[] byteImage;
@@ -37,12 +37,12 @@ public class AddProduct extends AppCompatActivity {
 
         ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE,android.Manifest.permission.READ_EXTERNAL_STORAGE}, PackageManager.PERMISSION_GRANTED);
 
-        prName = findViewById(R.id.et_prNameUp);
-        prPrice = findViewById(R.id.et_prPriceUp);
-        prStatus = findViewById(R.id.et_prStatusUp);
-        addBtn = findViewById(R.id.btn_updateProduct);
-        insertImg = findViewById(R.id.btn_get_imageUp);
-        imageView = findViewById(R.id.img_pr_update);
+        prName = findViewById(R.id.et_prNameAdd);
+        prPrice = findViewById(R.id.et_prPriceAdd);
+        prStatus = findViewById(R.id.et_prStatusAdd);
+        addBtn = findViewById(R.id.btn_addProduct);
+        insertImg = findViewById(R.id.btn_get_imageAdd);
+        imageView = findViewById(R.id.img_pr_add);
 
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override

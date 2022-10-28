@@ -7,7 +7,8 @@
     android:layout_marginTop="0dp"
     android:paddingLeft="5dp"
     android:paddingRight="5dp"
-    android:id="@+id/layout_ad_pr_item">
+    android:id="@+id/layout_ad_pr_item"
+    android:layout_marginBottom="2dp">
 
     <TableRow android:background="#F0F7F7" android:padding="10dp"
         tools:ignore="UselessParent">
@@ -40,14 +41,9 @@
             android:id="@+id/btn_update_product"
             android:layout_width="53dp"
             android:layout_height="wrap_content"
-            app:icon="@drawable/ic_baseline_file_upload_24" />
+            android:layout_weight="0"
+            app:icon="@drawable/ic_baseline_edit_24" />
 
-        <Button
-            android:id="@+id/btn_delete_product"
-            android:layout_width="54dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            app:icon="@drawable/ic_baseline_delete_24" />
     </TableRow>
 
 </TableLayout>
