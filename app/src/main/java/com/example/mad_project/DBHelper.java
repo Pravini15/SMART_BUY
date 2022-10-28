@@ -36,6 +36,12 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String CITY = "city";
     private static final String ADDRESS = "address";
 
+    private static final String TABLE_CONTACT = "contact_details";
+    private static final String NAME = "name";
+    private static final String CONTACT_ID = "contact_id";
+    private static final String EMAIL_ADDRESS = "address";
+    private static final String MESSAGE = "message";
+
     private static final String TABLE_USER = "user";
     private static final String USER_ID = "user_id";
     private static final String USER_NAME = "user_name";
@@ -78,6 +84,12 @@ public class DBHelper extends SQLiteOpenHelper {
                 ADDRESS + " TEXT);" ;
         db.execSQL(query1);
 
+        String query2 = "CREATE TABLE "+ TABLE_CONTACT + " (" + CONTACT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "+
+                NAME + " TEXT, " +
+                EMAIL_ADDRESS + " TEXT, " +
+                MESSAGE + " TEXT);" ;
+        db.execSQL(query2);
+
         String query2 = "CREATE TABLE "+ TABLE_USER + "(" + USER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "+
                 USER_NAME + " TEXT, " +
                 USER_EMAIL + " TEXT, " +
@@ -95,6 +107,8 @@ public class DBHelper extends SQLiteOpenHelper {
 
     }
 
+
+
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
@@ -103,6 +117,9 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_DELIVERY);
         onCreate(db);
 
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_CONTACT);
+        onCreate(db);
+        
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_USER);
         onCreate(db);
 
