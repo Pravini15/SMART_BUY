@@ -46,7 +46,7 @@
 
     <TextView
         android:id="@+id/devicename"
-        android:layout_width="184dp"
+        android:layout_width="wrap_content"
         android:layout_height="34dp"
         android:layout_marginTop="40dp"
         android:fontFamily="sans-serif"
@@ -111,58 +111,18 @@
         app:layout_constraintHorizontal_bias="0.151"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageView14"
-        android:layout_width="36dp"
-        android:layout_height="28dp"
-        android:layout_marginStart="96dp"
-        android:layout_marginBottom="40dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView10"
-        app:layout_constraintStart_toEndOf="@+id/textView8"
-        app:srcCompat="@drawable/gradient" />
-
-    <ImageView
-        android:id="@+id/imageView15"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView14"
-        app:layout_constraintStart_toStartOf="@+id/imageView14"
-        app:srcCompat="@drawable/ic_baseline_add_24" />
-
-    <ImageView
-        android:id="@+id/imageView16"
-        android:layout_width="35dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginBottom="40dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView10"
-        app:layout_constraintStart_toEndOf="@+id/imageView14"
-        app:srcCompat="@drawable/gradient" />
-
-    <ImageView
-        android:id="@+id/imageView17"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="12dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView16"
-        app:layout_constraintEnd_toEndOf="@+id/imageView16"
-        app:srcCompat="@drawable/minus" />
-
     <TextView
         android:id="@+id/textView9"
         android:layout_width="20dp"
         android:layout_height="25dp"
-        android:layout_marginBottom="44dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="56dp"
         android:text="@string/quntitynumber"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/imageView10"
-        app:layout_constraintEnd_toStartOf="@+id/imageView16"
-        app:layout_constraintHorizontal_bias="0.512"
-        app:layout_constraintStart_toEndOf="@+id/imageView14" />
+        app:layout_constraintBottom_toTopOf="@+id/textView7"
+        app:layout_constraintStart_toEndOf="@+id/addquantity" />
 
     <ImageView
         android:id="@+id/imageView18"
@@ -175,5 +135,37 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/back" />
+
+    <ImageView
+        android:id="@+id/minusimage"
+        android:layout_width="29dp"
+        android:layout_height="27dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="44dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView9"
+        app:srcCompat="@drawable/btnminus" />
+
+    <ImageView
+        android:id="@+id/addquantity"
+        android:layout_width="29dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="128dp"
+        android:layout_marginBottom="56dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView7"
+        app:layout_constraintStart_toEndOf="@+id/textView8"
+        app:srcCompat="@drawable/add_box" />
+
+    <TextView
+        android:id="@+id/status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="@string/brandnewstatus"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
