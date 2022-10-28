@@ -18,6 +18,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MAD_Project"
         tools:targetApi="31">
+        
+        <activity
+            android:name=".UpdateProductActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
 
         <activity
             android:name=".CartActivity"/>
@@ -88,13 +96,22 @@
         </activity>
 
         <activity
-            android:name=".FinalActivity"
-            android:exported="false">
+            android:name=".FinalActivity"/>
+           
+        <activity
+            android:name=".LandingActivity"
+            android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
-        
+
         <activity
             android:name=".UserListActivity"
             android:exported="false">
@@ -106,20 +123,19 @@
         <activity
             android:name=".EditProductActivity"
             android:exported="false" />
+        
+        <activity
+            android:name=".EditProductActivity"
+            android:exported="false" />
             
         <activity
             android:name=".DashboardActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
+            android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+        
         <activity
             android:name=".DeliveryActivity"
             android:exported="false" />
@@ -152,18 +168,16 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+        
         <activity
-            android:name=".LandingActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:name=".AdminProductViewActivity"
+            android:exported="false">
         </activity>
+        
         <activity
             android:name=".AddToCartActivity"
             android:exported="false" />
+            
         <activity
             android:name=".MainActivity"
             android:exported="false">
@@ -171,6 +185,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+        
         <activity
             android:name=".LoginActivity"
             android:exported="false" />
@@ -192,7 +207,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
+]
     </application>
 
 </manifest>

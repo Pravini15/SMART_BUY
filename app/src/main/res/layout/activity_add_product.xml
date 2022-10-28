@@ -9,35 +9,46 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:background="#E63CB0FF"
+        android:layout_height="100dp"
+        android:background="@drawable/logobg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="70dp"
-            android:layout_marginStart="44dp"
-            android:elegantTextHeight="true"
-            android:letterSpacing="0.1"
-            android:text="@string/appName"
-            android:textColor="@color/white"
-            android:textSize="40sp"
-            android:textStyle="bold"
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:contentDescription="@string/app_name"
+            android:scaleType="centerCrop"
+            android:src="@drawable/logo"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:text="@string/smartbuy"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintTop_toTopOf="parent" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="659dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-        app:layout_constraintVertical_bias="1.0" >
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
         <TextView
             android:id="@+id/textView4"
@@ -53,76 +64,119 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
-            android:id="@+id/et_prName"
-            android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="28dp"
             android:layout_marginTop="40dp"
-            android:ems="10"
-            android:hint="@string/product_name"
-            android:inputType="textPersonName"
+            android:text="@string/enter_the_product_name"
+            android:textColor="@color/black"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
         <EditText
-            android:id="@+id/et_prPrice"
-            android:layout_width="wrap_content"
+            android:id="@+id/et_prNameAdd"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginHorizontal="25dp"
+            android:layout_marginTop="10dp"
+            android:autofillHints="name"
             android:ems="10"
+            android:hint="@string/product_name"
             android:inputType="textPersonName"
-            android:hint="@string/price"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_prName" />
+            app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="28dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/enter_the_price"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_prNameAdd" />
 
         <EditText
-            android:id="@+id/et_prStatus"
-            android:layout_width="wrap_content"
+            android:id="@+id/et_prPriceAdd"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:ems="10"
+            android:layout_marginHorizontal="25dp"
+            android:layout_marginTop="10dp"
+            android:hint="@string/price"
             android:inputType="textPersonName"
-            android:hint="@string/status"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.44"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView12"
+            android:autofillHints="" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="28dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/enter_the_product_status"
+            android:textColor="@color/black"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_prPrice" />
+            app:layout_constraintTop_toBottomOf="@+id/et_prPriceAdd" />
+
+        <EditText
+            android:id="@+id/et_prStatusAdd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/status"
+            android:inputType="textPersonName"
+            android:layout_marginTop="10dp"
+            android:layout_marginHorizontal="25dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView13"
+            android:autofillHints="" />
 
         <Button
-            android:id="@+id/btn_get_image"
-            android:layout_width="150dp"
+            android:id="@+id/btn_get_imageAdd"
+            android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="128dp"
-            android:onClick="save"
+            android:layout_marginEnd="25dp"
             android:text="@string/get_image"
+            app:layout_constraintBottom_toBottomOf="@+id/img_pr_add"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/img_pr_insert" />
+            app:layout_constraintHorizontal_bias="0.921"
+            app:layout_constraintStart_toEndOf="@+id/img_pr_add"
+            app:layout_constraintTop_toTopOf="@+id/img_pr_add" />
 
         <ImageView
-            android:id="@+id/img_pr_insert"
-            android:layout_width="180dp"
-            android:layout_height="180dp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:id="@+id/img_pr_add"
+            android:layout_width="207dp"
+            android:layout_height="206dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="25dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_prStatus"
+            app:layout_constraintTop_toBottomOf="@+id/et_prStatusAdd"
             app:srcCompat="@mipmap/ic_launcher"
             tools:ignore="ContentDescription" />
 
         <Button
             android:id="@+id/btn_addProduct"
-            android:layout_width="198dp"
+            android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginHorizontal="25dp"
+            android:layout_marginTop="40dp"
             android:text="@string/addProduct"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_get_image" />
+            app:layout_constraintTop_toBottomOf="@+id/img_pr_add" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -23,7 +23,6 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.listView
     private ArrayList prID, prName, prPrice, prStatus;
     private ArrayList<ImageModelClass> imageModelClassList;
 
-
     public ProductAdapter(Context context, ArrayList prID, ArrayList prName, ArrayList prPrice, ArrayList prStatus, ArrayList<ImageModelClass> imageModelClassList) {
         this.context = context;
         this.prID = prID;

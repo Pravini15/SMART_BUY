@@ -22,10 +22,10 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img_pr_insert" />
+        app:layout_constraintTop_toBottomOf="@+id/img_pr_update" />
 
     <ImageView
-        android:id="@+id/img_pr_insert"
+        android:id="@+id/img_pr_update"
         android:layout_width="242dp"
         android:layout_height="255dp"
         android:layout_marginTop="148dp"
@@ -51,7 +51,7 @@
         android:layout_height="126dp"
         android:layout_marginStart="304dp"
         android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/img_pr_insert"
+        app:layout_constraintBottom_toTopOf="@+id/img_pr_update"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/landing_shape" />
 

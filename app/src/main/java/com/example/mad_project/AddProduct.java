@@ -7,12 +7,9 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.provider.MediaStore;
-import android.telephony.ims.ImsManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,13 +17,12 @@ import android.widget.ImageView;
 
 import com.example.mad_project.models.ImageModelClass;
 
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
 public class AddProduct extends AppCompatActivity {
 
     EditText prName, prPrice, prStatus;
-    Button addBtn, insertImg, viewImg;
+    Button addBtn, insertImg;
     ImageView imageView;
     Bitmap image;
     byte[] byteImage;
@@ -41,12 +37,12 @@ public class AddProduct extends AppCompatActivity {
 
         ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE,android.Manifest.permission.READ_EXTERNAL_STORAGE}, PackageManager.PERMISSION_GRANTED);
 
-        prName = findViewById(R.id.et_prName);
-        prPrice = findViewById(R.id.et_prPrice);
-        prStatus = findViewById(R.id.et_prStatus);
+        prName = findViewById(R.id.et_prNameAdd);
+        prPrice = findViewById(R.id.et_prPriceAdd);
+        prStatus = findViewById(R.id.et_prStatusAdd);
         addBtn = findViewById(R.id.btn_addProduct);
-        insertImg = findViewById(R.id.btn_get_image);
-        imageView = findViewById(R.id.img_pr_insert);
+        insertImg = findViewById(R.id.btn_get_imageAdd);
+        imageView = findViewById(R.id.img_pr_add);
 
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
