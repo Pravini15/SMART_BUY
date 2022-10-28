@@ -1,4 +1,5 @@
 package com.example.mad_project;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,21 +8,19 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.mad_project.DBHelper;
-
 public class LoginActivity extends AppCompatActivity {
 
     TextView loginpage;
     TextView app_signIn;
-    EditText app_username, app_password;
+    EditText app_email, app_password;
     RelativeLayout btn_login;
     DBHelper dbHelper;
+
     private String EmailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
     private String mobilePattern = "^\\+[0-9]{10,13}$";
     private String passwordPattern = "[a-zA-Z0-9\\\\!\\\\@\\\\#\\\\$]{8,24}";
@@ -35,8 +34,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         loginpage = findViewById(R.id.textView);
-        app_signIn = findViewById(R.id.app_sign);
-        app_username = findViewById(R.id.editText);
+        app_email = findViewById(R.id.editText);
         app_password = findViewById(R.id.editText2);
         btn_login = findViewById(R.id.btn_login);
         dbHelper = new DBHelper(this);
@@ -51,45 +49,52 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                validateFields();
-                LogUser();
-
+                //validateFields();
+                String email,password;
+                email = app_email.getText().toString();
+                password = app_password.getText().toString();
+                Cursor cursor = dbHelper.getData();
+                if (cursor.getCount() == 0){
+                    Toast.makeText(LoginActivity.this,"No entries Exists",Toast.LENGTH_LONG).show();
+                }
+                if (loginCheck(cursor,email,password)){
+                    Intent intent = new Intent(LoginActivity.this, FinalActivity.class);
+                    intent.putExtra("email",email);
+                    app_email.setText("");
+                    app_password.setText("");
+                    startActivity(intent);
+                }else {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
+                    builder.setCancelable(true);
+                    builder.setTitle("Wrong Credential");
+                    builder.setMessage("Wrong Credential");
+                    builder.show();
+                }
+                dbHelper.close();
             }
+        });
+        //logUser
+
+        app_signIn = findViewById(R.id.app_sign);
+        app_signIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this,RegisterActivity.class);
+                startActivity(intent);
+            }
+
         });
     }
 
-    private void LogUser() {
-        Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
-        startActivity(intent);
-
-    }
-
-    private void validateFields() {
-        String username,password;
-        username = app_username.getText().toString();
-        password = app_password.getText().toString();
-        //Cursor cursor = dbHelper.getData();
-
-
-        if (!(username.isEmpty())){
-            if (!(password.isEmpty())){
-                if (username.matches(EmailPattern)){
-                    if (password.matches(passwordPattern)){
-                        Toast.makeText(LoginActivity.this,"Hello user "+ username,Toast.LENGTH_SHORT).show();
-                    }else {
-                        app_password.setError("Password length should 8-24");
-                    }
-                }else {
-                    app_username.setError("Invalid password");
+    public static boolean loginCheck(@NonNull Cursor cursor, String email, String password){
+        while (cursor.moveToNext()){
+            if (cursor.getString(0).equals(email)){
+                if (cursor.getString(2).equals(password)){
+                    return true;
                 }
-            }else {
-                app_password.setError("Fill this ");
+                return false;
             }
-        }else {
-            app_username.setError("Fill this");
         }
-
-
-
+        return false;
     }
 }

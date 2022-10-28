@@ -4,54 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="@drawable/welcome">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="vertical"
-        tools:ignore="MissingConstraints">
-
-        <TextView
-            android:id="@+id/welcome"
-            style="@style/main_topic"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="10dp"
-            android:fontFamily="sans-serif-condensed-medium"
-            android:text="WELCOME"
-            android:textSize="50sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.444"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/btnLogin"
-            android:layout_width="200dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="80dp"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/btn_welcome"
-            android:fontFamily="sans-serif-black"
-            android:text="Login"
-            android:textSize="25sp" />
-
-        <Button
-            android:id="@+id/btnReg"
-            android:layout_width="200dp"
-            android:layout_height="50dp"
-            android:layout_marginBottom="50dp"
-            android:background="@drawable/btn_welcome"
-            android:fontFamily="sans-serif-black"
-            android:text="Register"
-            android:textSize="25sp" />
-
-
-    </LinearLayout>
+    tools:context=".MainActivity">
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
