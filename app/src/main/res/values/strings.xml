@@ -31,4 +31,7 @@
     <string name="view_image">View Image</string>
     <string name="get_image">Get Image</string>
     <string name="view_products">View Products</string>
+    <string name="brandnewstatus">Brand New</string>
+    <string name="cart">CART</string>
+    <string name="mycart">MY CART</string>
 </resources>
