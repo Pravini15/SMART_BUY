@@ -6,7 +6,6 @@
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         tools:ignore="ScopedStorage" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -51,16 +50,8 @@
             android:exported="false" />
             
         <activity
-            android:name=".CartActivity"/>
-            
-        <activity
             android:name=".RegisterActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -78,18 +69,10 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <activity
-            android:name=".EditProductActivity"
-            android:exported="false" />
+
         <activity
             android:name=".LoginActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -119,15 +102,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        
-        <activity
-            android:name=".EditProductActivity"
-            android:exported="false" />
-        
-        <activity
-            android:name=".EditProductActivity"
-            android:exported="false" />
-            
+
         <activity
             android:name=".DashboardActivity"
             android:exported="false">
@@ -156,6 +131,7 @@
         <activity
             android:name=".ProductActivity"
             android:exported="false" />
+
         <activity
             android:name=".EventdashboardActivity"
             android:exported="true">
@@ -185,10 +161,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        
-        <activity
-            android:name=".LoginActivity"
-            android:exported="false" />
 
         <provider
             android:name=".OrderProvider"
@@ -207,7 +179,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-]
     </application>
 
 </manifest>
