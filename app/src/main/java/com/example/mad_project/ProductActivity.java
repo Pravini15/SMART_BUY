@@ -4,10 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.mad_project.adapter.ProductAdapter;
@@ -23,6 +26,7 @@ public class ProductActivity extends AppCompatActivity {
     ArrayList<String > prID, prName, prPrice, prStatus;
     ArrayList<ImageModelClass> prImage;
     ProductAdapter productAdapter;
+    ImageView logo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +34,14 @@ public class ProductActivity extends AppCompatActivity {
         setContentView(R.layout.activity_product);
 
         recyclerView = findViewById(R.id.all_products);
+        logo = findViewById(R.id.iv_logoPr);
+
+        logo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ProductActivity.this, HomeActivity.class));
+            }
+        });
 
         dbHelper = new DBHelper(ProductActivity.this);
         prID = new ArrayList<>();

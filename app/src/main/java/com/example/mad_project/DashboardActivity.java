@@ -2,32 +2,32 @@ package com.example.mad_project;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class DashboardActivity extends AppCompatActivity {
 
-    Button viewButton, addButton, adminViewProducts;
+    Button addButton, adminViewProducts;
+    TextView prCount;
+    String count;
 
-    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
-        viewButton = findViewById(R.id.btn_dashViewProducts);
         addButton = findViewById(R.id.btn_dashAddProduct);
         adminViewProducts = findViewById(R.id.btn_adminViewProducts);
+        prCount = findViewById(R.id.tv_prCount);
 
-        viewButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(DashboardActivity.this, ProductActivity.class));
-            }
-        });
+        DBHelper db = new DBHelper(DashboardActivity.this);
+
+        count = String.valueOf(db.getProductsCount());
+
+        prCount.setText(count);
 
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override

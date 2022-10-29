@@ -26,7 +26,7 @@ public class UpdateProductActivity extends AppCompatActivity {
     EditText upName, upPrice, upStatus;
     Button upButton, deleteButton, getImage;
 
-    ImageView imageView;
+    ImageView imageView, logo;
     Bitmap image;
 
     String id, name, price, status;
@@ -47,6 +47,7 @@ public class UpdateProductActivity extends AppCompatActivity {
         deleteButton = findViewById(R.id.btn_delete_product);
         getImage = findViewById(R.id.btn_get_imageUp);
         imageView = findViewById(R.id.img_pr_update);
+        logo = findViewById(R.id.iv_logoUp);
 
         getAndSetIntentData();
 
@@ -57,6 +58,8 @@ public class UpdateProductActivity extends AppCompatActivity {
             price = upPrice.getText().toString().trim();
             status = upStatus.getText().toString().trim();
             myDB.updateProductData(id, name, price, status, new ImageModelClass(image));
+
+            startActivity(new Intent(UpdateProductActivity.this, AdminProductViewActivity.class));
         });
 
         deleteButton.setOnClickListener(new View.OnClickListener() {
@@ -68,6 +71,13 @@ public class UpdateProductActivity extends AppCompatActivity {
 
         getImage.setOnClickListener(v -> {
             imageChooser();
+        });
+
+        logo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(UpdateProductActivity.this, DashboardActivity.class));
+            }
         });
 
     }
@@ -101,6 +111,7 @@ public class UpdateProductActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
                 DBHelper myDB = new DBHelper(UpdateProductActivity.this);
                 myDB.deleteProduct(id);
+                startActivity(new Intent(UpdateProductActivity.this, AdminProductViewActivity.class));
             }
         });
         builder.setNegativeButton("No", new DialogInterface.OnClickListener() {

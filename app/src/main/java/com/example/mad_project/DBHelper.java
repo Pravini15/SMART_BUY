@@ -3,6 +3,7 @@ package com.example.mad_project;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.graphics.Bitmap;
@@ -111,7 +112,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 USER_ADDRESS + "TEXT);";
         db.execSQL(queryUser);
 
-        String queryEvent = "CREATE TABLE " + TABLE_EVENT_OFFERS + "(" + EVENT_OFFER_ID + "INTEGER PRIMARY KEY AUTOINCREMENT, " +
+        String queryEvent = "CREATE TABLE " + TABLE_EVENT_OFFERS + "(" + EVENT_OFFER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 EVENT_OFFER_START_DATE + " TEXT, " +
                 EVENT_OFFER_END_DATE + " TEXT, " +
                 EVENT_OFFER_DESCRIPTION + " TEXT, " +
@@ -338,6 +339,13 @@ public class DBHelper extends SQLiteOpenHelper {
             cursor = db.rawQuery(query3, null);
         }
         return cursor;
+    }
+
+    public long getProductsCount() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        long count = DatabaseUtils.queryNumEntries(db, TABLE_NAME);
+        db.close();
+        return count;
     }
 }
 
