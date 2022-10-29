@@ -35,7 +35,11 @@ public class AddProduct extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_product);
 
-        ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE,android.Manifest.permission.READ_EXTERNAL_STORAGE}, PackageManager.PERMISSION_GRANTED);
+        ActivityCompat.requestPermissions(this,
+                new String[]{
+                        android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                        android.Manifest.permission.READ_EXTERNAL_STORAGE
+                }, PackageManager.PERMISSION_GRANTED);
 
         prName = findViewById(R.id.et_prNameAdd);
         prPrice = findViewById(R.id.et_prPriceAdd);
@@ -53,6 +57,8 @@ public class AddProduct extends AppCompatActivity {
                         prPrice.getText().toString().trim(),
                         prStatus.getText().toString().trim(),
                         new ImageModelClass(image));
+
+                startActivity(new Intent(AddProduct.this, AdminProductViewActivity.class));
             }
         });
 

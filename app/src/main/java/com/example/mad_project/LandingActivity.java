@@ -23,7 +23,7 @@ public class LandingActivity extends AppCompatActivity {
 
         landinglogo = findViewById(R.id.logo);
 
-        String textlogo = "<font color = #0096FF ><b>SMART</b></font><font color= ##D7FCEE><b>BUY</b></font>";
+        String textlogo = "<font color = #0096FF ><b>SMART</b></font><font color= #D7FCEE><b>BUY</b></font>";
         landinglogo.setText(Html.fromHtml(textlogo));
 
         new Handler().postDelayed(new Runnable() {
